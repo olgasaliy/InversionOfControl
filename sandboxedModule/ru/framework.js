@@ -27,10 +27,6 @@ var context = { module: {},
       }
       var time = date.getDate() + ':' + (date.getMonth()+1) + ':' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
       console.log(applicationName + ' ' + time + ': ' + message);
-
-      var consoleOutput = fs.appendFile("output.txt", applicationName + ' ' + time + ': ' + message + '\n', function(err, info){
-        if (err) throw err;
-      });
     }
   }
 };
