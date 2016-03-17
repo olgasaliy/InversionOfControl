@@ -2,6 +2,7 @@
 // прикладного приложения, загружаемого в песочницу демонстрационным
 // кусочком фреймворка. Читайте README.md в нем задания.
 
+var util = require('util');
 // Вывод из глобального контекста модуля
 console.log('From application global context');
 
@@ -34,3 +35,7 @@ setTimeout(function() {
 
 
 util.print('Check3');
+
+module.exports.f = function() {
+  console.log("From wrapped console.log()");
+}

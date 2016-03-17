@@ -34,3 +34,15 @@ application 17:3:2016 15:58:35: Check2
 application 17:3:2016 15:58:36: Check2
 application 17:3:2016 15:58:37: Check2
 application 17:3:2016 15:58:38: Stop
+application 17:3:2016 16:12:38: From application global context
+application 17:3:2016 16:12:39: Check
+application 17:3:2016 16:12:39: Check2
+application 17:3:2016 16:12:40: Check2
+application 17:3:2016 16:12:41: Check2
+application 17:3:2016 16:12:42: Check2
+application 17:3:2016 16:12:43: Check2
+application 17:3:2016 16:12:44: Check2
+application 17:3:2016 16:12:45: Check2
+application 17:3:2016 16:12:46: Check2
+application 17:3:2016 16:12:47: Check2
+application 17:3:2016 16:12:48: Stop
