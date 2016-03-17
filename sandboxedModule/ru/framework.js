@@ -15,18 +15,36 @@ var context = { module: {},
   setTimeout:setTimeout,
   setInterval:setInterval,
   clearInterval:clearInterval,
-  util:util };
+  util:util,
+  console:{
+    log: function(message){
+      var date = new Date();
+      if(process.argv.length == 3){
+        applicationName = path.basename(process.argv[2]);
+      }
+      else{
+        applicationName = "application";
+      }
+      var time = date.getDate() + ':' + (date.getMonth()+1) + ':' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+      console.log(applicationName + ' ' + time + ': ' + message);
+
+      var consoleOutput = fs.appendFile("output.txt", applicationName + ' ' + time + ': ' + message + '\n', function(err, info){
+        if (err) throw err;
+      });
+    }
+  }
+};
 context.global = context;
 
 
-var array;
-var begin = "./", end = ".js";
-process.argv.forEach(function(val, index) {
-
-  if (index>1){
-    var fileName = begin + val + end;
+//var array;
+//var begin = "./", end = ".js";
+//process.argv.forEach(function(val, index) {
+//
+//  if (index>1){
+//    var fileName = begin + val + end;
    // console.log(index + " : " + begin);
-//  var fileName = './application.js';
+  var fileName = './application.js';
     var sandbox = vm.createContext(context);
     fs.readFile(fileName, function(err, src) {
       // Тут нужно обработать ошибки
@@ -38,8 +56,8 @@ process.argv.forEach(function(val, index) {
 
       // Забираем ссылку из sandbox.module.exports, можем ее исполнить,
       // сохранить в кеш, вывести на экран исходный код приложения и т.д.
-    });
-  }
+  //  });
+  //}
   //console.log(index + " : " + val);
 });
 
