@@ -36,6 +36,10 @@ setTimeout(function() {
 
 util.print('Check3');
 
-module.exports.f = function() {
+module.exports.f1 = function() {
+  console.log("From wrapped console.log()");
+}
+
+module.exports.f2 = function() {
   console.log("From wrapped console.log()");
 }
