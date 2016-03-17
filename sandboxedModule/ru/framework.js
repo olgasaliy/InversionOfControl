@@ -19,14 +19,14 @@ var context = { module: {},
 context.global = context;
 
 
-//var array;
-//var begin = "./", end = ".js";
-//process.argv.forEach(function(val, index) {
-//
-//  if (index>1){
-//    var fileName = begin + val + end;
-//   // console.log(index + " : " + begin);
-  var fileName = './application.js';
+var array;
+var begin = "./", end = ".js";
+process.argv.forEach(function(val, index) {
+
+  if (index>1){
+    var fileName = begin + val + end;
+   // console.log(index + " : " + begin);
+//  var fileName = './application.js';
     var sandbox = vm.createContext(context);
     fs.readFile(fileName, function(err, src) {
       // Тут нужно обработать ошибки
@@ -38,8 +38,8 @@ context.global = context;
 
       // Забираем ссылку из sandbox.module.exports, можем ее исполнить,
       // сохранить в кеш, вывести на экран исходный код приложения и т.д.
-   // });
- // }
+    });
+  }
   //console.log(index + " : " + val);
 });
 
