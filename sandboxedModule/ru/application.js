@@ -10,6 +10,7 @@ console.log('From application global context');
 module.exports = function() {
   // Вывод из контекста экспортируемой функции
   console.log('From application exported function');
+
 };
 
 
@@ -28,3 +29,8 @@ setTimeout(function() {
   console.log('Stop');
   clearInterval(timerId);
 }, 10000);
+
+
+
+
+util.print('Check3');
