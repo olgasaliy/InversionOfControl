@@ -3,13 +3,22 @@
 var fs = require('fs'),
     vm = require('vm');
 
+
+function cloneInterface(anInterface) {
+  var clone = {};
+  for (var key in anInterface) {
+    clone[key] = anInterface[key];
+  }
+  return clone;
+}
+
+
 // Объявляем хеш из которого сделаем контекст-песочницу
 var context = {
   module: {},
   console: console,
   // Оборачиваем функцию setTimeout в песочнице
-
-  fs:fs
+  fs: cloneInterface(fs),
 };
 
 // Преобразовываем хеш в контекст
