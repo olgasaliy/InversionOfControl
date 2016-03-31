@@ -18,6 +18,10 @@ function wrapFunction(fnName, fn) {
     Array.prototype.push.apply(args, arguments);
     console.log('Call: ' + fnName);
     console.dir(args);
+    if (typeof(args[this.length - 1]) === 'function'){
+      statistic['callbacks'] += 1;
+      args[args.length - 1] = wrapFunction('callback', args[this.length - 1])
+    }
     return fn.apply(undefined, args);
   }
 }
