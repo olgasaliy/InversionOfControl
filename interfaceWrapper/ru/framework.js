@@ -12,12 +12,17 @@ function cloneInterface(anInterface) {
   return clone;
 }
 
+var statistic = {'callbacks':0, 'callFunction':0}
+
 function wrapFunction(fnName, fn) {
   return function wrapper() {
     var args = [];
     Array.prototype.push.apply(args, arguments);
     console.log('Call: ' + fnName);
     console.dir(args);
+    if (fnName != 'callback') {
+      statistic['callFunction'] += 1;
+    }
     if (typeof(args[this.length - 1]) === 'function'){
       statistic['callbacks'] += 1;
       args[args.length - 1] = wrapFunction('callback', args[this.length - 1])
@@ -44,4 +49,5 @@ fs.readFile(fileName, function(err, src) {
   // Запускаем код приложения в песочнице
   var script = vm.createScript(src, fileName);
   script.runInNewContext(sandbox);
+  setInterval(function(){console.log (statistic)},1000);
 });
